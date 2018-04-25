@@ -8,7 +8,6 @@ multidimensional array.
 import re
 import numpy
 import struct
-from lib2to3.tests.data.infinite_recursion import u_int16_t
 
 def _get_metadata(file):
     ''' Read the metadata of the *.ris file. The metadata always appears first
@@ -66,7 +65,7 @@ def get_thermogram(file, x_start = 0, width = float('inf'),
     frame_start = min(frame_start+frame_count,frame_count_max)-frame_count
     
     # Create storage space for the thermogram
-    thermogram = numpy.zeros([frame_count, height, width], dtype = u_int16_t)
+    thermogram = numpy.zeros([frame_count, height, width], dtype = numpy.uint16)
     
     for current_frame in range(frame_start, frame_start + frame_count):
         # Locate the frame in the file
